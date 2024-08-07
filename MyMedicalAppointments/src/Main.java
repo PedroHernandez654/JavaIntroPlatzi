@@ -1,18 +1,13 @@
+import java.util.Date;
+
 import static ui.UIMenu.*;
 
 public class Main {
     public static void main(String[] args) {
         //showMenu();
         Doctor myDoctor = new Doctor("Pedro Hernández", "Pediatria");
-        System.out.println(myDoctor.name);
-        System.out.println(myDoctor.speciality);
 
-        int i = 0;
-        int b = 2;
-        b = i;
-        String name = "Ann";
-
-        Patient patient = new Patient("Alejandra","alejandra@gmail.com");
+        /*Patient patient = new Patient("Alejandra","alejandra@gmail.com");
         Patient patient2 = new Patient("Anahi","anahi@gmail.com");
 
         System.out.println(patient.getName());
@@ -27,17 +22,14 @@ public class Main {
 
         patient.setName("Manuela");
         System.out.println(patient.getName());
-        System.out.println(patient2.getName());
+        System.out.println(patient2.getName());*/
 
-        /*patient.setWeight(54.6);
-        System.out.println(patient.getWeight());
+        myDoctor.addAvailableAppointment(new Date(), "4 PM");
+        myDoctor.addAvailableAppointment(new Date(), "10 AM");
+        myDoctor.addAvailableAppointment(new Date(), "1 PM");
 
-        patient.setPhoneNumber("12345678");
-        System.out.println(patient.getPhoneNumber());*/
-
-        //patient.weight = 60.5; //Kg
-        //patient.height = 1.65; // Mts
-
-
+        for (Doctor.AvailableAppointment aA: myDoctor.getAvailableAppointments()){
+            System.out.println(aA.getDate() + " " + aA.getTime());
+        }
     }
 }
