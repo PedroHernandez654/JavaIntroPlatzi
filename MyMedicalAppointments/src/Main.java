@@ -5,7 +5,7 @@ import static ui.UIMenu.*;
 public class Main {
     public static void main(String[] args) {
         //showMenu();
-        Doctor myDoctor = new Doctor("Pedro Hernández", "Pediatria");
+        Doctor myDoctor = new Doctor("Pedro Hernández", "Pedro@gmail.com");
 
         /*Patient patient = new Patient("Alejandra","alejandra@gmail.com");
         Patient patient2 = new Patient("Anahi","anahi@gmail.com");
@@ -28,9 +28,9 @@ public class Main {
         myDoctor.addAvailableAppointment(new Date(), "10 AM");
         myDoctor.addAvailableAppointment(new Date(), "1 PM");
 
-        for (Doctor.AvailableAppointment aA: myDoctor.getAvailableAppointments()){
+        /*for (Doctor.AvailableAppointment aA: myDoctor.getAvailableAppointments()){
             System.out.println(aA.getDate() + " " + aA.getTime());
-        }
+        }*/
 
         System.out.println(Day.MONDAY.getSpanish());
 
@@ -38,5 +38,6 @@ public class Main {
 
         System.out.println(patient);
 
+        System.out.println(myDoctor);
     }
 }
