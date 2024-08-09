@@ -1,13 +1,12 @@
-import model.Doctor;
-import model.Nurse;
-import model.Patient;
-import model.User;
+import model.*;
 
 import java.util.Date;
 
+import static ui.UIMenu.*;
+
 public class Main {
     public static void main(String[] args) {
-        //showMenu();
+        showMenu();
         //Doctor myDoctor = new Doctor("Pedro Hernández", "Pedro@gmail.com");
 
         /*model.Patient patient = new model.Patient("Alejandra","alejandra@gmail.com");
@@ -44,12 +43,19 @@ public class Main {
 //        System.out.println(myDoctor);
 
 
-        User user = new Doctor("Pedro Hernández", "Pedro@gmail.com");
-        User user2 = new Nurse("Pedro Hernández2", "Pedro@gmail.com2");
-        User user3 = new Patient("Pedro Hernández3", "Pedro@gmail.com3");
-        user.showDataUser();
-        user2.showDataUser();
-        user3.showDataUser();
+//        User user = new Doctor("Pedro Hernández", "Pedro@gmail.com");
+//
+//        User user2 = new User("Pedro", "pedro@123.com") {
+//            @Override
+//            public void showDataUser() {
+//                System.out.println("Doctor");
+//                System.out.println("Hospital: Cruz Verde");
+//                System.out.println("Departamento: Geriatría");
+//            }
+//        };
+//        user2.showDataUser();
+//
+//        user.showDataUser();
 
     }
 }
