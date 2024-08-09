@@ -1,4 +1,5 @@
-import java.lang.reflect.Array;
+package model;
+
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -6,7 +7,7 @@ public class Doctor extends User{
     //Atributos
     private String speciality;
 
-    Doctor(String name, String email){
+    public Doctor(String name, String email){
         super(name,email);
         System.out.println("El nombre del Dr asingado es "+name);
     }
