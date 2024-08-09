@@ -34,5 +34,9 @@ public class Main {
 
         System.out.println(Day.MONDAY.getSpanish());
 
+        Patient patient = new Patient("Alejandra","alejandra@gmail.com");
+
+        System.out.println(patient);
+
     }
 }
