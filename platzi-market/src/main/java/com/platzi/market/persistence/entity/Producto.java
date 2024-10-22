@@ -1,5 +1,7 @@
 package com.platzi.market.persistence.entity;
 
+import org.springframework.dao.UncategorizedDataAccessException;
+
 import javax.persistence.*;
 
 //La anotación más importante en la estructura
@@ -82,4 +84,9 @@ public class Producto {
     private Integer cantidadStock;
 
     private Boolean estado;
+
+    //De muchos a uno
+    @ManyToOne
+    @JoinColumn(name = "id_categoria", insertable = false, updatable = false)//A través de esta relación no se puede insertar o actualizar
+    private Categoria categoria;
 }
