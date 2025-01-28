@@ -2,7 +2,7 @@ package com.platzi.market.domain;
 
 public class Category {
     private int categoryId;
-    private String Category;
+    private String category;
     private boolean active;
 
     public int getCategoryId() {
@@ -14,11 +14,11 @@ public class Category {
     }
 
     public String getCategory() {
-        return Category;
+        return category;
     }
 
-    public void setCategory(String category) {
-        Category = category;
+    public void setCategory(String Category) {
+        category = Category;
     }
 
     public boolean isActive() {
