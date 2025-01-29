@@ -2,6 +2,10 @@ package com.platzi.market.web.controller;
 
 import com.platzi.market.domain.Product;
 import com.platzi.market.domain.service.ProductService;
+import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiParam;
+import io.swagger.annotations.ApiResponse;
+import io.swagger.annotations.ApiResponses;
 import org.apache.coyote.Response;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -18,19 +22,27 @@ public class ProductController {
     private ProductService productService;
 
     @GetMapping("/all")/*Se usa el ResponseEntity para retornar el response los Status de Http*/
+    @ApiOperation("Get all SuperMarket Products")
+    @ApiResponse(code = 200, message = "OK")
     public ResponseEntity<List<Product>> getAll(){
         return new ResponseEntity<>(productService.getAll(), HttpStatus.OK);//Se pueden tener 2 parametros para que se retorne el objeto y el status
     }
 
     @GetMapping("/{id}")
+    //Con estas anotaciones hacemos que nuestra documentación en Swagger sea más precisa
+    @ApiOperation("Search a Product with an ID")
+    @ApiResponses({
+            @ApiResponse(code = 200, message = "OK"),
+            @ApiResponse(code = 404, message = "Product Not Found")
+    })
     public ResponseEntity<Product>  getProduct(@PathVariable("id") int productId){
         return productService.getProduct(productId)
                 .map(product -> new ResponseEntity<>(product,HttpStatus.OK))
                 .orElse(new ResponseEntity<>(HttpStatus.NOT_FOUND));
     }
 
-    @GetMapping("/category/{categoryId}")
-    public ResponseEntity<List<Product>> getByCategory(@PathVariable("categoryId") int categoryId){
+    @GetMapping("/category/{categoryId}")//Podemos ponerle @ApiParam para que al momento de pedir nuestro dato para realizar acciones sea requerido, descriptivo y si queremos un ejemplo
+    public ResponseEntity<List<Product>> getByCategory(@ApiParam(value = "The Id of he product", required = true, example = "7") @PathVariable("categoryId") int categoryId){
         return productService.getByCategory(categoryId)
                 .map(products -> new ResponseEntity<>(products,HttpStatus.OK))
                 .orElse(new ResponseEntity<>(HttpStatus.NOT_FOUND));

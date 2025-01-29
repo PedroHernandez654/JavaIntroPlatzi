@@ -5,7 +5,7 @@ plugins {
 }
 
 group = 'com.platzi'
-version = '0.0.1-SNAPSHOT'
+version = '1.0'
 
 java {
 	toolchain {
@@ -24,6 +24,10 @@ dependencies {
 	//Incluir Base de datos
 	runtimeOnly 'org.postgresql:postgresql'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	//Incluir Swagger
+	implementation 'io.springfox:springfox-swagger2:2.9.2'
+	//Incluir Swagger UI
+	implementation 'io.springfox:springfox-swagger-ui:2.9.2'
 
 	implementation 'org.mapstruct:mapstruct:1.6.2'
 	annotationProcessor 'org.mapstruct:mapstruct-processor:1.6.2'

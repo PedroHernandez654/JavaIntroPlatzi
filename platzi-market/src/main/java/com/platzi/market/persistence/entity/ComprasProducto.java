@@ -40,11 +40,29 @@ public class ComprasProducto {
 
     @EmbeddedId
     private ComprasProductoPK  id;
+
+    public Producto getProducto() {
+        return producto;
+    }
+
+    public void setProducto(Producto producto) {
+        this.producto = producto;
+    }
+
+    public Compra getCompra() {
+        return compra;
+    }
+
+    public void setCompra(Compra compra) {
+        this.compra = compra;
+    }
+
     private Integer cantidad;
     private Double total;
     private Boolean estado;
 
     @ManyToOne//Todas las anotaciones que contengan JoinColumn y ManyToOne deben llevar inserable false y updatable false
+    @MapsId("idCompra")
     @JoinColumn(name = "id_compra", insertable = false,updatable = false)
     private Compra compra;
 
